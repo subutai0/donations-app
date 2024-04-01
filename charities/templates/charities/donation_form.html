@@ -1,0 +1,16 @@
+<!-- In donation_form.html of templates/charities directory -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donate to {{ charity.name }}</title>
+</head>
+<body>
+    <h2>Donate to {{ charity.name }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Donate">
+    </form>
+</body>
+</html>
+

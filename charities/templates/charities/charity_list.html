@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Charities</title>
+</head>
+<body>
+    <h1>Charities</h1>
+    {% for charity in charities %}
+        <div>
+            <h2>{{ charity.name }}</h2>
+            <p>{{ charity.description }}</p>
+            <img src="{{ charity.image.url }}" alt="{{ charity.name }}">
+            <form action="{% url 'donate' %}" method="post">
+                <!-- Donation form with PayPal or bank details -->
+                {% csrf_token %}
+                <input type="hidden" name="charity_id" value="{{ charity.id }}">
+                <input type="submit" value="Donate">
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>
+
